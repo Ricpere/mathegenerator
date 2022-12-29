@@ -36,7 +36,8 @@ checkbox_division = tk.IntVar()
 checkbox = tk.Checkbutton(window, text=":", variable=checkbox_division, font=("Arial", 12))
 checkbox.pack()
 
-
+print (checkbox_division)
+print (checkbox_addition)
 
 # Create Numberspace
 
@@ -46,5 +47,5 @@ window.mainloop()
 
 #Classes
 
-class Problem(window):
-    defzahl=0 #placeholder
+#class Problem(window):
+    #defzahl=0 #placeholder
