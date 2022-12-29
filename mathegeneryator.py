@@ -8,6 +8,46 @@ additionrechnen = True
 subtraktionrechnen = True
 multiplikationrechnen = True
 divisionrechnen = True
+result = 0
+rechnung= 1+1
+#generate Math Calculation
+
+
+
+def generate_problem(*args):
+
+    #Generate Nummbers
+    num1= random.randint(1, 20)
+    num2= random.randint(1, 20)
+
+    #chose Operations
+
+    operations = []
+    if additionrechnen == True:
+        operations.append ("addition")
+    if subtraktionrechnen == True:
+        operations.append ("subtraktion")
+    if multiplikationrechnen == True:
+        operations.append ("multiplikation")
+    if divisionrechnen == True:
+        operations.append ("division")
+
+    global result
+    global rechnung
+
+    chosen_operation = random.choice(operations)
+    if chosen_operation == "addition":
+        result = num1 + num2
+        rechnung= 
+    if chosen_operation == "subtraktion":
+        result = num1 - num2
+    if chosen_operation == "multiplikation":
+        result = num1 * num2
+    if chosen_operation == "division":
+        tempresultat= num1 * num2
+        result = tempresultat / num1
+
+generate_problem()
 #generate window and optics
 
 #Mainframe
@@ -18,9 +58,9 @@ window.title ("Kofprechnen macht Spass!")
 problem_label_title = tk.Label(text="Rechenaufgabe:", font=("Arial", 24))
 problem_label_title.pack()
 
-# create the problem label
-problem_label = tk.Label(text="ohjemine", font=("Arial", 24))
-problem_label.pack()
+# create the problem 
+problem = tk.Label(text= result, font=("Arial", 24))
+problem.pack()
 
 # create the answer entry field
 answer_entry = tk.Entry(font=("Arial", 24))
@@ -31,7 +71,6 @@ answer_entry.pack()
 answer_button = tk.Button(text= "Resultat Prüfen", font=("Arial", 12),)
 answer_button.pack()
 
-answer_button.trace(print("w"), print("klick"))
 # Create a checkbox
 
 checkbox_addition = tk.IntVar()
@@ -45,7 +84,7 @@ checkbox_subtraktion.set(True)
 checkbox.pack()
 
 checkbox_multiplikation = tk.IntVar()
-checkbox = tk.Checkbutton(window, text="", variable=checkbox_multiplikation, font=("Arial", 12))
+checkbox = tk.Checkbutton(window, text="x", variable=checkbox_multiplikation, font=("Arial", 12))
 checkbox_multiplikation.set(True)
 checkbox.pack()
 
@@ -87,7 +126,7 @@ def update_operations(*args):
         divisionrechnen = False
         print (divisionrechnen)
         print ("Divisionsrechnen aus")
-
+    
 
 
 # Call the update_operations function whenever a checkbox is clicked
