@@ -18,7 +18,10 @@ problem_label.pack()
 answer_entry = tk.Entry(font=("Arial", 24))
 answer_entry.pack()
 
-#create Checkboxes
+# Create a checkbox
+checkbox_value = tk.IntVar()
+checkbox = tk.Checkbutton(window, text="Option", variable=checkbox_value, font=("Arial", 24))
+checkbox.pack()
 
 # Create Numberspace
 
