@@ -3,7 +3,11 @@ import random
 import tkinter as tk
 from tkinter import *
 
-
+#Define Variables
+additionrechnen = True
+subtraktionrechnen = True
+multiplikationrechnen = True
+divisionrechnen = True
 #generate window and optics
 
 #Mainframe
@@ -41,28 +45,37 @@ checkbox = tk.Checkbutton(window, text=":", variable=checkbox_division, font=("A
 checkbox_division.set(True)
 checkbox.pack()
 
-def update_operations(any):
+def update_operations(*args):
    
     # Enable or disable the operations based on the checkbox values
     if checkbox_addition.get() == 1 :
         additionrechnen = True
+        print ("Additionsrechnen an")
     else:
         additionrechnen = False
+        print ("Additionsrechnen aus")
 
     if checkbox_subtraktion.get() == 1:
         subtraktionrechnen = True
+        print ("Subtraktionsrechnen an")
     else:
         subtraktionrechnen = False
+        print ("Subtraktionsrechnen aus")
 
     if checkbox_multiplikation.get() == 1:
         multiplikationrechnen = True
+        print ("Multiplikationsrechnen an")
     else:
         multiplikationrechnen = False
+        print ("Multiplikationsrechnen aus")
 
     if checkbox_division.get() == 1:
        divisionrechnen = True
+       print ("Divisionsrechnen an")
     else:
         divisionrechnen = False
+        print (divisionrechnen)
+        print ("Divisionsrechnen aus")
 
 
 
@@ -78,8 +91,3 @@ checkbox_division.trace("w", update_operations)
 
 # run the main loop
 window.mainloop()
-
-#Classes
-
-#class Problem(window):
-    #defzahl=0 #placeholder
