@@ -14,8 +14,12 @@ divisionrechnen = True
 window= tk.Tk()
 window.title ("Kofprechnen macht Spass!")
 
+# create the problem label title
+problem_label_title = tk.Label(text="Rechenaufgabe:", font=("Arial", 24))
+problem_label_title.pack()
+
 # create the problem label
-problem_label = tk.Label(text="Rechenaufgabe:", font=("Arial", 24))
+problem_label = tk.Label(text="ohjemine", font=("Arial", 24))
 problem_label.pack()
 
 # create the answer entry field
