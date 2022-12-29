@@ -2,6 +2,9 @@
 import random
 import tkinter as tk
 from tkinter import *
+from tkinter import messagebox
+
+#
 
 #Define Variables
 additionrechnen = True
@@ -9,7 +12,8 @@ subtraktionrechnen = True
 multiplikationrechnen = True
 divisionrechnen = True
 result = 0
-rechnung= 1+1
+rechnung = 0
+
 #generate Math Calculation
 
 
@@ -38,14 +42,17 @@ def generate_problem(*args):
     chosen_operation = random.choice(operations)
     if chosen_operation == "addition":
         result = num1 + num2
-        rechnung= 
+        rechnung= "%i + %i" %(num1, num2)
     if chosen_operation == "subtraktion":
         result = num1 - num2
+        rechnung= "%i - %i" %(num1, num2)
     if chosen_operation == "multiplikation":
         result = num1 * num2
+        rechnung= "%i * %i" %(num1, num2)
     if chosen_operation == "division":
         tempresultat= num1 * num2
         result = tempresultat / num1
+        rechnung= "%i : %i" %(tempresultat, num1)
 
 generate_problem()
 #generate window and optics
@@ -59,7 +66,7 @@ problem_label_title = tk.Label(text="Rechenaufgabe:", font=("Arial", 24))
 problem_label_title.pack()
 
 # create the problem 
-problem = tk.Label(text= result, font=("Arial", 24))
+problem = tk.Label(text= rechnung, font=("Arial", 24))
 problem.pack()
 
 # create the answer entry field
@@ -84,7 +91,7 @@ checkbox_subtraktion.set(True)
 checkbox.pack()
 
 checkbox_multiplikation = tk.IntVar()
-checkbox = tk.Checkbutton(window, text="x", variable=checkbox_multiplikation, font=("Arial", 12))
+checkbox = tk.Checkbutton(window, text="x", variable=checkbox_multiplikation, font=("Arial", 12),)
 checkbox_multiplikation.set(True)
 checkbox.pack()
 
@@ -93,8 +100,6 @@ checkbox = tk.Checkbutton(window, text=":", variable=checkbox_division, font=("A
 checkbox_division.set(True)
 checkbox.pack()
 
-
-#Update Operations 
 def update_operations(*args):
    
     # Enable or disable the operations based on the checkbox values
