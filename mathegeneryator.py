@@ -19,9 +19,24 @@ answer_entry = tk.Entry(font=("Arial", 24))
 answer_entry.pack()
 
 # Create a checkbox
-checkbox_value = tk.IntVar()
-checkbox = tk.Checkbutton(window, text="Option", variable=checkbox_value, font=("Arial", 24))
+
+checkbox_addition = tk.IntVar()
+checkbox = tk.Checkbutton(window, text="+", variable=checkbox_addition, font=("Arial", 12))
 checkbox.pack()
+
+checkbox_subtraktion = tk.IntVar()
+checkbox = tk.Checkbutton(window, text="-", variable=checkbox_subtraktion, font=("Arial", 12))
+checkbox.pack()
+
+checkbox_multiplikation = tk.IntVar()
+checkbox = tk.Checkbutton(window, text="x", variable=checkbox_multiplikation, font=("Arial", 12))
+checkbox.pack()
+
+checkbox_division = tk.IntVar()
+checkbox = tk.Checkbutton(window, text=":", variable=checkbox_division, font=("Arial", 12))
+checkbox.pack()
+
+
 
 # Create Numberspace
 
