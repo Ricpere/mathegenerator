@@ -26,7 +26,12 @@ problem_label.pack()
 answer_entry = tk.Entry(font=("Arial", 24))
 answer_entry.pack()
 
+#Create Submitbutton
 
+answer_button = tk.Button(text= "Resultat Prüfen", font=("Arial", 12),)
+answer_button.pack()
+
+answer_button.trace(print("w"), print("klick"))
 # Create a checkbox
 
 checkbox_addition = tk.IntVar()
@@ -40,7 +45,7 @@ checkbox_subtraktion.set(True)
 checkbox.pack()
 
 checkbox_multiplikation = tk.IntVar()
-checkbox = tk.Checkbutton(window, text="x", variable=checkbox_multiplikation, font=("Arial", 12))
+checkbox = tk.Checkbutton(window, text="", variable=checkbox_multiplikation, font=("Arial", 12))
 checkbox_multiplikation.set(True)
 checkbox.pack()
 
@@ -49,6 +54,8 @@ checkbox = tk.Checkbutton(window, text=":", variable=checkbox_division, font=("A
 checkbox_division.set(True)
 checkbox.pack()
 
+
+#Update Operations 
 def update_operations(*args):
    
     # Enable or disable the operations based on the checkbox values
