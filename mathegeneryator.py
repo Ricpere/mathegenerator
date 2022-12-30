@@ -63,42 +63,55 @@ window.title ("Kofprechnen macht Spass!")
 
 # create the problem label title
 problem_label_title = tk.Label(text="Rechenaufgabe:", font=("Arial", 24))
-problem_label_title.pack()
+problem_label_title.grid(row=0, column=0)
 
 # create the problem 
 problem = tk.Label(text= rechnung, font=("Arial", 24))
-problem.pack()
+problem.grid(row=1, column=0)
 
 # create the answer entry field
 answer_entry = tk.Entry(font=("Arial", 24))
-answer_entry.pack()
+answer_entry.grid(row=2, column=0)
 
 #Create Submitbutton
 
 answer_button = tk.Button(text= "Resultat Prüfen", font=("Arial", 12),)
-answer_button.pack()
+answer_button.grid(row=3, column=0)
+
+#frame
+frame = tk.Frame(window, borderwidth=0, relief="solid")
+frame.grid(row=4, column=0)
 
 # Create a checkbox
 
 checkbox_addition = tk.IntVar()
-checkbox = tk.Checkbutton(window, text="+", variable=checkbox_addition, font=("Arial", 12))
+checkbox = tk.Checkbutton(frame, text="+", variable=checkbox_addition, font=("Arial", 12))
 checkbox_addition.set(True)
-checkbox.pack()
+checkbox.grid(row=4, column=0)
+#checkbox.pack()
 
 checkbox_subtraktion = tk.IntVar()
-checkbox = tk.Checkbutton(window, text="-", variable=checkbox_subtraktion, font=("Arial", 12))
+checkbox = tk.Checkbutton(frame, text="-", variable=checkbox_subtraktion, font=("Arial", 12))
 checkbox_subtraktion.set(True)
-checkbox.pack()
+checkbox.grid(row=4, column=1, padx=5, pady=5)
+#checkbox.pack()
 
 checkbox_multiplikation = tk.IntVar()
-checkbox = tk.Checkbutton(window, text="x", variable=checkbox_multiplikation, font=("Arial", 12),)
+checkbox = tk.Checkbutton(frame, text="x", variable=checkbox_multiplikation, font=("Arial", 12),)
 checkbox_multiplikation.set(True)
-checkbox.pack()
+checkbox.grid(row=4, column=2, padx=5, pady=5)
+#checkbox.pack()
 
 checkbox_division = tk.IntVar()
-checkbox = tk.Checkbutton(window, text=":", variable=checkbox_division, font=("Arial", 12))
+checkbox = tk.Checkbutton(frame, text=":", variable=checkbox_division, font=("Arial", 12))
 checkbox_division.set(True)
-checkbox.pack()
+checkbox.grid(row=4, column=3, padx=5, pady=5)
+#checkbox.pack()
+
+window.columnconfigure(0, pad=60)
+window.columnconfigure(1, pad=60)
+window.columnconfigure(2, pad=60)
+window.columnconfigure(3, pad=60)
 
 def update_operations(*args):
    
