@@ -13,10 +13,9 @@ multiplikationrechnen = True
 divisionrechnen = True
 result = 0
 rechnung = 0
+user_answer= 0
 
 #generate Math Calculation
-
-
 
 def generate_problem(*args):
 
@@ -54,6 +53,16 @@ def generate_problem(*args):
         result = tempresultat / num1
         rechnung= "%i : %i" %(tempresultat, num1)
 
+#generate Check Solution
+
+def check_answer():
+    if  user_answer==result:
+        return True
+    else:
+        return False
+
+
+
 generate_problem()
 #generate window and optics
 
@@ -70,10 +79,10 @@ problem = tk.Label(text= rechnung, font=("Arial", 24))
 problem.grid(row=1, column=0)
 
 # create the answer entry field
-answer_entry = tk.Entry(font=("Arial", 24))
+answer_entry = tk.Entry(font=("Arial", 24), variable=user_answer)
 answer_entry.grid(row=2, column=0)
 
-#Create Submitbutton
+#Create Submitbutton and the logic of it
 
 answer_button = tk.Button(text= "Resultat Prüfen", font=("Arial", 12),)
 answer_button.grid(row=3, column=0)
