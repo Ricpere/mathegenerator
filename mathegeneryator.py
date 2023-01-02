@@ -13,7 +13,8 @@ multiplikationrechnen = True
 divisionrechnen = True
 result = 0
 rechnung = 0
-user_answer= 0
+
+
 
 #generate Math Calculation
 
@@ -53,13 +54,7 @@ def generate_problem(*args):
         result = tempresultat / num1
         rechnung= "%i : %i" %(tempresultat, num1)
 
-#generate Check Solution
 
-def check_answer():
-    if  user_answer==result:
-        return True
-    else:
-        return False
 
 
 
@@ -79,13 +74,23 @@ problem = tk.Label(text= rechnung, font=("Arial", 24))
 problem.grid(row=1, column=0)
 
 # create the answer entry field
-answer_entry = tk.Entry(font=("Arial", 24), variable=user_answer)
+answer_entry = tk.Entry(font=("Arial", 24))
 answer_entry.grid(row=2, column=0)
 
 #Create Submitbutton and the logic of it
-
-answer_button = tk.Button(text= "Resultat Prüfen", font=("Arial", 12),)
+def check_answer():
+    global result
+    user_answer = answer_entry.getint
+    if  user_answer==result:
+        print ("true")
+        return True
+        
+    else:
+        print ("false")
+        return False
+answer_button = tk.Button(text= "Resultat Prüfen", font=("Arial", 12),command= check_answer)
 answer_button.grid(row=3, column=0)
+
 
 #frame
 frame = tk.Frame(window, borderwidth=0, relief="solid")
@@ -154,7 +159,6 @@ def update_operations(*args):
         print (divisionrechnen)
         print ("Divisionsrechnen aus")
     
-
 
 # Call the update_operations function whenever a checkbox is clicked
 checkbox_addition.trace("w", update_operations)
