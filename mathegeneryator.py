@@ -74,22 +74,24 @@ problem = tk.Label(text= rechnung, font=("Arial", 24))
 problem.grid(row=1, column=0)
 
 # create the answer entry field
-answer_entry = tk.Entry(font=("Arial", 24))
+answer_entry = tk.Entry(font=("Arial", 24),)
 answer_entry.grid(row=2, column=0)
 
 #Create Submitbutton and the logic of it
 def check_answer():
     global result
     global user_answer
-    user_answer = answer_entry.get()
-    if  user_answer==result:
+    user_answer = int(answer_entry.get())
+    if  user_answer == result:
         print ("true")
-        print (user_answer)
+        print ("Input=",user_answer)
+        print ("Resultat=", result)
         return True
         
     else:
         print ("false")
-        print (user_answer)
+        print ("Input=", user_answer)
+        print ("Resultat=", result)
         return False
 answer_button = tk.Button(text= "Resultat Prüfen", font=("Arial", 12),command= check_answer)
 answer_button.grid(row=3, column=0)
