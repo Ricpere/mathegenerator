@@ -13,7 +13,7 @@ multiplikationrechnen = True
 divisionrechnen = True
 result = 0
 rechnung = 0
-
+user_answer = False 
 
 
 #generate Math Calculation
@@ -80,13 +80,16 @@ answer_entry.grid(row=2, column=0)
 #Create Submitbutton and the logic of it
 def check_answer():
     global result
-    user_answer = answer_entry.getint
+    global user_answer
+    user_answer = answer_entry.get()
     if  user_answer==result:
         print ("true")
+        print (user_answer)
         return True
         
     else:
         print ("false")
+        print (user_answer)
         return False
 answer_button = tk.Button(text= "Resultat Prüfen", font=("Arial", 12),command= check_answer)
 answer_button.grid(row=3, column=0)
