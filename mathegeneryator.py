@@ -1,28 +1,29 @@
 #Import Module
 import random
 import tkinter as tk
-from tkinter import *
 from tkinter import messagebox
-
-#
 
 #Define Variables
 additionrechnen = True
 subtraktionrechnen = True
 multiplikationrechnen = True
 divisionrechnen = True
-result = 0
-rechnung = 0
+result = int(0)
+rechnung = int(0)
 user_answer = False 
+num1= random.randint(1, 20)
+num2= random.randint(1, 20)
 
+#generate Numbers
 
+def generate_number():
+    global num1
+    global num2
+    num1= random.randint(1, 20)
+    num2= random.randint(1, 20)
 #generate Math Calculation
 
 def generate_problem(*args):
-
-    #Generate Nummbers
-    num1= random.randint(1, 20)
-    num2= random.randint(1, 20)
 
     #chose Operations
 
@@ -38,11 +39,12 @@ def generate_problem(*args):
 
     global result
     global rechnung
+    
 
     chosen_operation = random.choice(operations)
     if chosen_operation == "addition":
         result = num1 + num2
-        rechnung= "%i + %i" %(num1, num2)
+        rechnung = "%i + %i" %(num1, num2)
     if chosen_operation == "subtraktion":
         result = num1 - num2
         rechnung= "%i - %i" %(num1, num2)
@@ -55,10 +57,9 @@ def generate_problem(*args):
         rechnung= "%i : %i" %(tempresultat, num1)
 
 
-
-
-
+#generate Problem
 generate_problem()
+
 #generate window and optics
 
 #Mainframe
@@ -70,7 +71,7 @@ problem_label_title = tk.Label(text="Rechenaufgabe:", font=("Arial", 24))
 problem_label_title.grid(row=0, column=0)
 
 # create the problem 
-problem = tk.Label(text= rechnung, font=("Arial", 24))
+problem = tk.Label(text=rechnung, font=("Arial", 24))
 problem.grid(row=1, column=0)
 
 # create the answer entry field
@@ -79,6 +80,7 @@ answer_entry.grid(row=2, column=0)
 
 #Create Submitbutton and the logic of it
 def check_answer():
+    global rechnung
     global result
     global user_answer
     user_answer = int(answer_entry.get())
@@ -86,6 +88,10 @@ def check_answer():
         print ("true")
         print ("Input=",user_answer)
         print ("Resultat=", result)
+        generate_number()
+        generate_problem()
+        problem.config(text=rechnung)
+        
         return True
         
     else:
