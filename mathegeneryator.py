@@ -90,6 +90,7 @@ def check_answer():
         print ("Resultat=", result)
         generate_number()
         generate_problem()
+        update_operations()
         problem.config(text=rechnung)
         
         return True
