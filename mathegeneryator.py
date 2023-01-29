@@ -1,3 +1,17 @@
+"""""
+© Dario Bertozzi & Ricardo Pereira 
+
+Versionslog:
+V.01 Erstellen der Funktionen und generierung der Rechenaufgabe. Implementierung der Update Checkboxes Funktion.
+V0.2 Erstellung des GUIS
+V0.3 Dynamisches GUI mit aktualisierung der Rechnung
+V0.4 Implementierung des Aufgaben prüfen buttons und der funktionalität dahinter
+V0.5 Bugfixes gemäss Testsprint 1 (Anpassung der Variablen auf Global)
+
+"""
+
+
+
 #Import Module
 import random
 import tkinter as tk
@@ -82,23 +96,25 @@ answer_entry.grid(row=2, column=0)
 
 #Create Submitbutton and the logic of it
 def check_answer():
+    update_operations()
     global rechnung
     global result
     global user_answer
     user_answer = int(answer_entry.get())
     if  user_answer == result:
-        print ("true")
+        print ("Rechnung richtig")
         print ("Input=",user_answer)
         print ("Resultat=", result)
         generate_number()
         generate_problem()
-        update_operations()
+        
         problem.config(text=rechnung)
+        
         
         return True
         
     else:
-        print ("false")
+        print ("Rechnung falsch")
         print ("Input=", user_answer)
         print ("Resultat=", result)
         return False
@@ -142,7 +158,11 @@ window.columnconfigure(2, pad=60)
 window.columnconfigure(3, pad=60)
 
 def update_operations(*args):
-   
+
+    global additionrechnen
+    global subtraktionrechnen
+    global divisionrechnen
+    global multiplikationrechnen
     # Enable or disable the operations based on the checkbox values
     if checkbox_addition.get() == 1 :
         additionrechnen = True
