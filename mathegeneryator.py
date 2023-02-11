@@ -16,6 +16,46 @@ import random
 import tkinter as tk
 from tkinter import messagebox
 
+#New Gui
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+""""
 # Define Variables
 additionrechnen = True
 subtraktionrechnen = True
@@ -80,7 +120,9 @@ generate_problem()
 
 # Mainframe
 window = tk.Tk()
+window.resizable(False, False)
 window.title("Kofprechnen macht Spass!")
+
 
 # create the problem label title
 problem_label_title = tk.Label(text="Rechenaufgabe:", font=("Arial", 24))
@@ -215,3 +257,4 @@ checkbox_division.trace("w", update_operations)
 
 # run the main loop
 window.mainloop()
+""""
