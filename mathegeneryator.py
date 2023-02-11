@@ -17,45 +17,121 @@ import tkinter as tk
 from tkinter import messagebox
 
 #New Gui
+window = tk.Tk()
+window.resizable(False, False)
+window.geometry("400x400")
+window.title("Kofprechnen macht Spass!")
+
+problem_label_title = tk.Label(text="Rechenaufgabe:", font=("Arial", 24), width=21)
+problem_label_title.grid(row=0, column=0, sticky="")
 
 
+#create the problem
+problem = tk.Label(text="rechnung", font=("Arial", 24), width=0)                     #Rechnung anpassen
+problem.grid(row=1, column=0)
 
 
+#create the answer entry field
+answer_entry = tk.Entry(font=("Arial", 24), width=9)
+answer_entry.grid(row=2, column=0)
 
 
+#create/position button Prüfen
+answer_button = tk.Button(text="Prüfen", font=("Arial", 14))
+answer_button.grid(row=3, column=0)
 
 
+#create/position button Neue Aufgabe
+answer_button = tk.Button(text="Neue Aufgabe", font=("Arial", 12))
+answer_button.place(x=60, y=190)
 
 
+#create button 9
+one_button = tk.Button(text="9", font=("Arial", 14))
+one_button.place(x=315, y=190)
+
+#create button 8
+one_button = tk.Button(text="8", font=("Arial", 14))
+one_button.place(x=275, y=190)
+
+#create button 7
+one_button = tk.Button(text="7", font=("Arial", 14))
+one_button.place(x=235, y=190)
+
+#create button 6
+one_button = tk.Button(text="6", font=("Arial", 14))
+one_button.place(x=315, y=240)
+
+#create button 5
+one_button = tk.Button(text="5", font=("Arial", 14))
+one_button.place(x=275, y=240)
+
+#create button 4
+one_button = tk.Button(text="4", font=("Arial", 14))
+one_button.place(x=235, y=240)
+
+#create button 3
+one_button = tk.Button(text="3", font=("Arial", 14))
+one_button.place(x=315, y=290)
+
+#create button 2
+one_button = tk.Button(text="2", font=("Arial", 14))
+one_button.place(x=275, y=290)
+
+#create button 1
+one_button = tk.Button(text="1", font=("Arial", 14))
+one_button.place(x=235, y=290)
+
+#create button 0
+one_button = tk.Button(text="0", font=("Arial", 14))
+one_button.place(x=235, y=340)
+
+#create button Enter
+one_button = tk.Button(text="Enter", font=("Arial", 14))
+one_button.place(x=275, y=340)
 
 
+####create and set default status for radiobutton
+selected_option =  tk.StringVar()
+selected_option.set("easy")
+
+#create radiobutton easy
+easy_option = tk.Radiobutton(text="Easy", variable=selected_option, value="easy")
+easy_option.place(x=60, y=240)
+
+#create radiobutton hard
+hard_option = tk.Radiobutton(text="Hard", variable=selected_option, value="hard")
+hard_option.place(x=60, y=280)
 
 
+####create and set default status for checkboxes
+checkbox_subtraction = tk.IntVar()
+checkbox_addition = tk.IntVar()
+checkbox_division = tk.IntVar()
+checkbox_multiplikation = tk.IntVar()
 
+#create checkbox multiplication
+checkbox = tk.Checkbutton(text="*",variable=checkbox_multiplikation, font=("Arial", 16))
+checkbox.place(x=60, y=320)
+checkbox_multiplikation.set(True)
 
+#create checkbox division
+checkbox = tk.Checkbutton(text=":",variable=checkbox_division, font=("Arial", 16))
+checkbox.place(x=100, y=320)
+checkbox_division.set(True)
 
+#create checkbox subtraction
+checkbox = tk.Checkbutton(text="-", variable=checkbox_subtraction, font=("Arial", 16),)
+checkbox.place(x=140, y=320)
+checkbox_subtraction.set(True)
 
+#create checkbox addition
+checkbox = tk.Checkbutton(text="+", variable=checkbox_addition , font=("Arial", 16))
+checkbox.place(x=180, y=320)
+checkbox_addition.set(True)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-""""
+window.mainloop()
+"""
 # Define Variables
 additionrechnen = True
 subtraktionrechnen = True
@@ -257,4 +333,4 @@ checkbox_division.trace("w", update_operations)
 
 # run the main loop
 window.mainloop()
-""""
+"""
