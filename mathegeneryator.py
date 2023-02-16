@@ -17,6 +17,20 @@ import random
 import tkinter as tk
 from tkinter import messagebox
 
+
+# Define Variables
+additionrechnen = True
+subtraktionrechnen = True
+multiplikationrechnen = True
+divisionrechnen = True
+result = int(0)
+rechnung = int(0)
+user_answer = False
+num1hard = random.randint(1, 20)
+num2hard = random.randint(1, 20)
+num1easy = random.randint(1, 10)
+num2easy = random.randint(1, 5)
+
 #New Gui
 window = tk.Tk()
 window.resizable(False, False)
@@ -131,7 +145,21 @@ checkbox = tk.Checkbutton(text="+", variable=checkbox_addition , font=("Arial", 
 checkbox.place(x=180, y=320)
 checkbox_addition.set(True)
 
+def generate_number():
+#Import global variables
+ global num1easy
+ global num2easy
+ global num1hard
+ global num2hard   
+
+# generate new numbers
+num1hard = random.randint(1, 20)
+num2hard = random.randint(1, 20)
+num1easy = random.randint(1, 10)
+num2easy = random.randint(1, 5)
+
 window.mainloop()
+
 """
 # Define Variables
 additionrechnen = True
