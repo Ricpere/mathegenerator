@@ -29,29 +29,11 @@ user_answer = False
 num1= int(123)
 num2= int(123)
 selected_option="easy"
-
-
-
-def generate_number():
-    #Import global variables
-    global selected_option
-    global num1
-    global num2 
-
-    
-    #generate numbers
-
-    if selected_option == "easy":
-        num1 = random.randint(1, 10)
-        num2 = random.randint(1, 10)
-    elif selected_option == "hard":
-        num1 = random.randint(1, 20)
-        num2 = random.randint(1, 20)
-    return num1, num2
+problem= "1"
 
 
 def generate_problem(*args):
-    generate_number()
+    
     # chose Operations
 
     operations = []
@@ -63,11 +45,22 @@ def generate_problem(*args):
         operations.append("multiplikation")
     if divisionrechnen == True:
         operations.append("division")
-
+        
+    global selected_option
     global result
     global rechnung
     global num1
     global num2
+
+    #generate numbers
+
+    if selected_option == "easy":
+        num1 = random.randint(1, 10)
+        num2 = random.randint(1, 10)
+    elif selected_option == "hard":
+        num1 = random.randint(1, 20)
+        num2 = random.randint(1, 20)
+   
 
     chosen_operation = random.choice(operations)
     if chosen_operation == "addition":
@@ -83,8 +76,8 @@ def generate_problem(*args):
         tempresultat = num1 * num2
         result = tempresultat / num1
         rechnung = "%i : %i" % (tempresultat, num1)
-    return result,rechnung
-    #problem.config(text=rechnung)
+    return result,rechnung,num1,num2
+
 
 
 def update_operations(*args):
@@ -144,7 +137,7 @@ problem_label_title.grid(row=0, column=0, sticky="")
 
 
 #create the problem
-problem = tk.Label(text= rechnung, font=("Arial", 24), width=0)                     #Rechnung anpassen
+problem = tk.Label(text=rechnung, font=("Arial", 24), width=0)                     #Rechnung anpassen
 problem.grid(row=1, column=0)
 
 
@@ -158,8 +151,12 @@ answer_button = tk.Button(text="Prüfen", font=("Arial", 14))
 answer_button.grid(row=3, column=0)
 
 
-#create/position button Neue Aufgabe
-answer_button = tk.Button(text="Neue Aufgabe", font=("Arial", 12),)
+#create/position button Neue Aufgabe and the logic of it.
+
+def NeueAufgabe():
+    generate_problem()
+    problem.config(text=rechnung)
+answer_button = tk.Button(text="Neue Aufgabe", font=("Arial", 12),command=NeueAufgabe)
 answer_button.place(x=60, y=190)
 
 
