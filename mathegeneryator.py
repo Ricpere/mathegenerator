@@ -28,7 +28,109 @@ rechnung = int(0)
 user_answer = False
 num1= int(123)
 num2= int(123)
-problem = "1+1"
+selected_option="easy"
+
+
+
+def generate_number():
+    #Import global variables
+    global selected_option
+    global num1
+    global num2 
+
+    
+    #generate numbers
+
+    if selected_option == "easy":
+        num1 = random.randint(1, 10)
+        num2 = random.randint(1, 10)
+    elif selected_option == "hard":
+        num1 = random.randint(1, 20)
+        num2 = random.randint(1, 20)
+    return num1, num2
+
+
+def generate_problem(*args):
+    generate_number()
+    # chose Operations
+
+    operations = []
+    if additionrechnen == True:
+        operations.append("addition")
+    if subtraktionrechnen == True:
+        operations.append("subtraktion")
+    if multiplikationrechnen == True:
+        operations.append("multiplikation")
+    if divisionrechnen == True:
+        operations.append("division")
+
+    global result
+    global rechnung
+    global num1
+    global num2
+
+    chosen_operation = random.choice(operations)
+    if chosen_operation == "addition":
+        result = num1 + num2
+        rechnung = "%i + %i" % (num1, num2)
+    if chosen_operation == "subtraktion":
+        result = num1 - num2
+        rechnung = "%i - %i" % (num1, num2)
+    if chosen_operation == "multiplikation":
+        result = num1 * num2
+        rechnung = "%i * %i" % (num1, num2)
+    if chosen_operation == "division":
+        tempresultat = num1 * num2
+        result = tempresultat / num1
+        rechnung = "%i : %i" % (tempresultat, num1)
+    return result,rechnung
+    #problem.config(text=rechnung)
+
+
+def update_operations(*args):
+
+    global additionrechnen
+    global subtraktionrechnen
+    global divisionrechnen
+    global multiplikationrechnen
+    # Enable or disable the operations based on the checkbox values
+    if checkbox_addition.get() == 1:
+        additionrechnen = True
+        print("Additionsrechnen an")
+    else:
+        additionrechnen = False
+        print("Additionsrechnen aus")
+
+    if checkbox_subtraction.get() == 1:
+        subtraktionrechnen = True
+        print("Subtraktionsrechnen an")
+    else:
+        subtraktionrechnen = False
+        print("Subtraktionsrechnen aus")
+
+    if checkbox_multiplikation.get() == 1:
+        multiplikationrechnen = True
+        print("Multiplikationsrechnen an")
+    else:
+        multiplikationrechnen = False
+        print("Multiplikationsrechnen aus")
+
+    if checkbox_division.get() == 1:
+       divisionrechnen = True
+       print("Divisionsrechnen an")
+    else:
+        divisionrechnen = False
+        print(divisionrechnen)
+        print("Divisionsrechnen aus")
+
+
+generate_problem()
+
+
+
+
+
+
 
 
 #New Gui
@@ -42,7 +144,7 @@ problem_label_title.grid(row=0, column=0, sticky="")
 
 
 #create the problem
-problem = tk.Label(text= problem, font=("Arial", 24), width=0)                     #Rechnung anpassen
+problem = tk.Label(text= rechnung, font=("Arial", 24), width=0)                     #Rechnung anpassen
 problem.grid(row=1, column=0)
 
 
@@ -57,7 +159,7 @@ answer_button.grid(row=3, column=0)
 
 
 #create/position button Neue Aufgabe
-answer_button = tk.Button(text="Neue Aufgabe", font=("Arial", 12))
+answer_button = tk.Button(text="Neue Aufgabe", font=("Arial", 12),)
 answer_button.place(x=60, y=190)
 
 
@@ -94,7 +196,7 @@ one_button = tk.Button(text="2", font=("Arial", 14))
 one_button.place(x=275, y=290)
 
 #create button 1
-one_button = tk.Button(text="1", font=("Arial", 14),command=input(int(1)))
+one_button = tk.Button(text="1", font=("Arial", 14))
 one_button.place(x=235, y=290)
 
 #create button 0
@@ -145,97 +247,6 @@ checkbox = tk.Checkbutton(text="+", variable=checkbox_addition , font=("Arial", 
 checkbox.place(x=180, y=320)
 checkbox_addition.set(True)
 
-def generate_number():
-    #Import global variables
-    global selected_option
-    global num1
-    global num2 
-
-    
-    #generate numbers
-
-    if selected_option == "easy":
-        num1 = random.randint(1, 10)
-        num2 = random.randint(1, 10)
-    if selected_option == "hard":
-        num1 = random.randint(1, 20)
-        num2 = random.randint(1, 20)
-
-#generate Numbers
-generate_number()
-
-def generate_problem(*args):
-    generate_number()
-    # chose Operations
-
-    operations = []
-    if additionrechnen == True:
-        operations.append("addition")
-    if subtraktionrechnen == True:
-        operations.append("subtraktion")
-    if multiplikationrechnen == True:
-        operations.append("multiplikation")
-    if divisionrechnen == True:
-        operations.append("division")
-
-    global result
-    global rechnung
-    global num1
-    global num2
-
-    chosen_operation = random.choice(operations)
-    if chosen_operation == "addition":
-        result = num1 + num2
-        rechnung = "%i + %i" % (num1, num2)
-    if chosen_operation == "subtraktion":
-        result = num1 - num2
-        rechnung = "%i - %i" % (num1, num2)
-    if chosen_operation == "multiplikation":
-        result = num1 * num2
-        rechnung = "%i * %i" % (num1, num2)
-    if chosen_operation == "division":
-        tempresultat = num1 * num2
-        result = tempresultat / num1
-        rechnung = "%i : %i" % (tempresultat, num1)
-    problem.config(text=rechnung)
-
-def update_operations(*args):
-
-    global additionrechnen
-    global subtraktionrechnen
-    global divisionrechnen
-    global multiplikationrechnen
-    # Enable or disable the operations based on the checkbox values
-    if checkbox_addition.get() == 1:
-        additionrechnen = True
-        print("Additionsrechnen an")
-    else:
-        additionrechnen = False
-        print("Additionsrechnen aus")
-
-    if checkbox_subtraction.get() == 1:
-        subtraktionrechnen = True
-        print("Subtraktionsrechnen an")
-    else:
-        subtraktionrechnen = False
-        print("Subtraktionsrechnen aus")
-
-    if checkbox_multiplikation.get() == 1:
-        multiplikationrechnen = True
-        print("Multiplikationsrechnen an")
-    else:
-        multiplikationrechnen = False
-        print("Multiplikationsrechnen aus")
-
-    if checkbox_division.get() == 1:
-       divisionrechnen = True
-       print("Divisionsrechnen an")
-    else:
-        divisionrechnen = False
-        print(divisionrechnen)
-        print("Divisionsrechnen aus")
-
-
 # Call the update_operations function whenever a checkbox is clicked
 checkbox_addition.trace("w", update_operations)
 checkbox_subtraction.trace("w", update_operations)
@@ -244,7 +255,8 @@ checkbox_division.trace("w", update_operations)
 
 
 
-generate_problem()
+
+
 
 window.mainloop()
 
