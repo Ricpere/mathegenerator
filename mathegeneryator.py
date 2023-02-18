@@ -18,6 +18,8 @@ import tkinter as tk
 from tkinter import messagebox
 
 
+
+
 # Define Variables
 additionrechnen = True
 subtraktionrechnen = True
@@ -35,7 +37,7 @@ problem= "1"
 def generate_problem(*args):
     
     # chose Operations
-
+    
     operations = []
     if additionrechnen == True:
         operations.append("addition")
@@ -45,15 +47,15 @@ def generate_problem(*args):
         operations.append("multiplikation")
     if divisionrechnen == True:
         operations.append("division")
-        
+
     global selected_option
     global result
     global rechnung
     global num1
     global num2
 
+    
     #generate numbers
-
     if selected_option == "easy":
         num1 = random.randint(1, 10)
         num2 = random.randint(1, 10)
