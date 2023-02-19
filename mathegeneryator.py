@@ -33,8 +33,21 @@ num2= int(123)
 selected_option="easy"
 problem= "1"
 
+def generate_numbers():
+    global selected_option
+    global num1
+    global num2
+    if selected_option == "easy":
+        num1 = random.randint(1, 10)
+        num2 = random.randint(1, 10)
+    elif selected_option == "hard":
+        num1 = random.randint(1, 20)
+        num2 = random.randint(1, 20)
+    return num1, num2
 
 def generate_problem(*args):
+    
+    generate_numbers()
     
     # chose Operations
     
@@ -53,16 +66,6 @@ def generate_problem(*args):
     global rechnung
     global num1
     global num2
-
-    
-    #generate numbers
-    if selected_option == "easy":
-        num1 = random.randint(1, 10)
-        num2 = random.randint(1, 10)
-    elif selected_option == "hard":
-        num1 = random.randint(1, 20)
-        num2 = random.randint(1, 20)
-   
 
     chosen_operation = random.choice(operations)
     if chosen_operation == "addition":
@@ -156,6 +159,7 @@ answer_button.grid(row=3, column=0)
 #create/position button Neue Aufgabe and the logic of it.
 
 def NeueAufgabe():
+    generate_numbers()
     generate_problem()
     problem.config(text=rechnung)
 answer_button = tk.Button(text="Neue Aufgabe", font=("Arial", 12),command=NeueAufgabe)
@@ -209,7 +213,7 @@ one_button.place(x=275, y=340)
 
 ####create and set default status for radiobutton
 selected_option =  tk.StringVar()
-selected_option.set("easy")
+selected_option.set("hard") #zerstört die Variable für das Programm
 
 #create radiobutton easy
 easy_option = tk.Radiobutton(text="Easy", variable=selected_option, value="easy")
