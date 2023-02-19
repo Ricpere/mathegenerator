@@ -30,17 +30,17 @@ rechnung = int(0)
 user_answer = False
 num1= int(123)
 num2= int(123)
-selected_option="easy"
+easy_mode=True
 problem= "1"
 
 def generate_numbers():
-    global selected_option
+    global easy_mode
     global num1
     global num2
-    if selected_option == "easy":
+    if easy_mode == True:
         num1 = random.randint(1, 10)
         num2 = random.randint(1, 10)
-    elif selected_option == "hard":
+    else:
         num1 = random.randint(1, 20)
         num2 = random.randint(1, 20)
     return num1, num2
@@ -61,7 +61,7 @@ def generate_problem(*args):
     if divisionrechnen == True:
         operations.append("division")
 
-    global selected_option
+    global easy_mode
     global result
     global rechnung
     global num1
@@ -212,15 +212,15 @@ one_button.place(x=275, y=340)
 
 
 ####create and set default status for radiobutton
-selected_option =  tk.StringVar()
-selected_option.set("easy") #zerstört die Variable für das Programm
+easy_mode =  tk.BooleanVar()
+easy_mode.set(True) #zerstört die Variable für das Programm
 
 #create radiobutton easy
-easy_option = tk.Radiobutton(text="Easy", variable=selected_option, value="easy")
+easy_option = tk.Radiobutton(text="Easy", variable=easy_mode, value=True)
 easy_option.place(x=60, y=240)
 
 #create radiobutton hard
-hard_option = tk.Radiobutton(text="Hard", variable=selected_option, value="hard")
+hard_option = tk.Radiobutton(text="Hard", variable=easy_mode, value=False)
 hard_option.place(x=60, y=280)
 
 
