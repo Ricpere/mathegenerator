@@ -213,7 +213,7 @@ one_button.place(x=275, y=340)
 
 ####create and set default status for radiobutton
 selected_option =  tk.StringVar()
-selected_option.set("hard") #zerstört die Variable für das Programm
+selected_option.set("easy") #zerstört die Variable für das Programm
 
 #create radiobutton easy
 easy_option = tk.Radiobutton(text="Easy", variable=selected_option, value="easy")
