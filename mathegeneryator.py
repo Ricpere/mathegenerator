@@ -7,8 +7,9 @@ V0.2 Erstellung des GUIS
 V0.3 Dynamisches GUI mit aktualisierung der Rechnung
 V0.4 Implementierung des Aufgaben prüfen buttons und der funktionalität dahinter
 V0.5 Bugfixes gemäss Testsprint 1 (Anpassung der Variablen auf Global)
-V0.6 Generallüberarbeitung GUI
-
+V0.6 Implementierung der Automatischen Lösungskontrolle im Gui inklusive Eingabelöschung. 
+Implementierung der neue Aufgabe Funkion
+Implementierung der Schwierigkeit
 """
 
 
