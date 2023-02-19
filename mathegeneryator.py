@@ -172,61 +172,61 @@ answer_button.place(x=60, y=190)
 #create button 9
 def insert_number9():
     answer_entry.insert(tk.END, "9")
-one_button = tk.Button(text="9", font=("Arial", 14))
+one_button = tk.Button(text="9", font=("Arial", 14), command=insert_number9)
 one_button.place(x=315, y=190)
 
 #create button 8
 def insert_number8():
     answer_entry.insert(tk.END, "8")
-one_button = tk.Button(text="8", font=("Arial", 14))
+one_button = tk.Button(text="8", font=("Arial", 14), command=insert_number8)
 one_button.place(x=275, y=190)
 
 #create button 7
 def insert_number7():
     answer_entry.insert(tk.END, "7")
-one_button = tk.Button(text="7", font=("Arial", 14))
+one_button = tk.Button(text="7", font=("Arial", 14), command=insert_number7)
 one_button.place(x=235, y=190)
 
 #create button 6
 def insert_number6():
     answer_entry.insert(tk.END, "6")
-one_button = tk.Button(text="6", font=("Arial", 14))
+one_button = tk.Button(text="6", font=("Arial", 14), command= insert_number6)
 one_button.place(x=315, y=240)
 
 #create button 5
 def insert_number5():
     answer_entry.insert(tk.END, "5")
-one_button = tk.Button(text="5", font=("Arial", 14))
+one_button = tk.Button(text="5", font=("Arial", 14), command=insert_number5)
 one_button.place(x=275, y=240)
 
 #create button 4
 def insert_number4():
     answer_entry.insert(tk.END, "4")
-one_button = tk.Button(text="4", font=("Arial", 14))
+one_button = tk.Button(text="4", font=("Arial", 14), command=insert_number4)
 one_button.place(x=235, y=240)
 
 #create button 3
 def insert_number3():
     answer_entry.insert(tk.END, "3")
-one_button = tk.Button(text="3", font=("Arial", 14))
+one_button = tk.Button(text="3", font=("Arial", 14),command=insert_number3)
 one_button.place(x=315, y=290)
 
 #create button 2
 def insert_number2():
     answer_entry.insert(tk.END, "2")
-one_button = tk.Button(text="2", font=("Arial", 14))
+one_button = tk.Button(text="2", font=("Arial", 14), command=insert_number2)
 one_button.place(x=275, y=290)
 
 #create button 1
 def insert_number1():
     answer_entry.insert(tk.END, "1")
-one_button = tk.Button(text="1", font=("Arial", 14))
+one_button = tk.Button(text="1", font=("Arial", 14), command=insert_number1)
 one_button.place(x=235, y=290)
 
 #create button 0
 def insert_number0():
     answer_entry.insert(tk.END, "0")
-one_button = tk.Button(text="0", font=("Arial", 14))
+one_button = tk.Button(text="0", font=("Arial", 14), command= insert_number0)
 one_button.place(x=235, y=340)
 
 #create button Enter
