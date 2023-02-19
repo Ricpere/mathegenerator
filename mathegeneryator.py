@@ -30,14 +30,156 @@ rechnung = int(0)
 user_answer = False
 num1= int(123)
 num2= int(123)
-easy_mode=bool(1)
+easy_mode= "True"
 problem= "1"
+
+
+#New Gui
+window = tk.Tk()
+window.resizable(False, False)
+window.geometry("400x400")
+window.title("Kofprechnen macht Spass!")
+
+problem_label_title = tk.Label(text="Rechenaufgabe:", font=("Arial", 24), width=21)
+problem_label_title.grid(row=0, column=0, sticky="")
+
+
+#create the problem
+problem = tk.Label(text=rechnung, font=("Arial", 24), width=0)                     #Rechnung anpassen
+problem.grid(row=1, column=0)
+
+
+#create the answer entry field
+answer_entry = tk.Entry(font=("Arial", 24), width=9)
+answer_entry.grid(row=2, column=0)
+
+
+#create/position button Prüfen
+answer_button = tk.Button(text="Prüfen", font=("Arial", 14))
+answer_button.grid(row=3, column=0)
+
+
+#create/position button Neue Aufgabe and the logic of it.
+
+def NeueAufgabe():
+    generate_problem()
+    problem.config(text=rechnung)
+answer_button = tk.Button(text="Neue Aufgabe", font=("Arial", 12),command=NeueAufgabe)
+answer_button.place(x=60, y=190)
+
+
+#create button 9
+def insert_number9():
+    answer_entry.insert(tk.END, "9")
+one_button = tk.Button(text="9", font=("Arial", 14), command=insert_number9)
+one_button.place(x=315, y=190)
+
+#create button 8
+def insert_number8():
+    answer_entry.insert(tk.END, "8")
+one_button = tk.Button(text="8", font=("Arial", 14), command=insert_number8)
+one_button.place(x=275, y=190)
+
+#create button 7
+def insert_number7():
+    answer_entry.insert(tk.END, "7")
+one_button = tk.Button(text="7", font=("Arial", 14), command=insert_number7)
+one_button.place(x=235, y=190)
+
+#create button 6
+def insert_number6():
+    answer_entry.insert(tk.END, "6")
+one_button = tk.Button(text="6", font=("Arial", 14), command= insert_number6)
+one_button.place(x=315, y=240)
+
+#create button 5
+def insert_number5():
+    answer_entry.insert(tk.END, "5")
+one_button = tk.Button(text="5", font=("Arial", 14), command=insert_number5)
+one_button.place(x=275, y=240)
+
+#create button 4
+def insert_number4():
+    answer_entry.insert(tk.END, "4")
+one_button = tk.Button(text="4", font=("Arial", 14), command=insert_number4)
+one_button.place(x=235, y=240)
+
+#create button 3
+def insert_number3():
+    answer_entry.insert(tk.END, "3")
+one_button = tk.Button(text="3", font=("Arial", 14),command=insert_number3)
+one_button.place(x=315, y=290)
+
+#create button 2
+def insert_number2():
+    answer_entry.insert(tk.END, "2")
+one_button = tk.Button(text="2", font=("Arial", 14), command=insert_number2)
+one_button.place(x=275, y=290)
+
+#create button 1
+def insert_number1():
+    answer_entry.insert(tk.END, "1")
+one_button = tk.Button(text="1", font=("Arial", 14), command=insert_number1)
+one_button.place(x=235, y=290)
+
+#create button 0
+def insert_number0():
+    answer_entry.insert(tk.END, "0")
+one_button = tk.Button(text="0", font=("Arial", 14), command= insert_number0)
+one_button.place(x=235, y=340)
+
+#create button Enter
+one_button = tk.Button(text="Enter", font=("Arial", 14))
+one_button.place(x=275, y=340)
+
+
+####create and set default status for radiobutton
+easy_mode =  tk.BooleanVar(value=True)
+#easy_mode.set(True) #zerstört die Variable für das Programm
+
+#create radiobutton easy
+easy_option = tk.Radiobutton(text="Easy", variable=easy_mode, value=True)
+easy_option.place(x=60, y=240)
+
+#create radiobutton hard
+hard_option = tk.Radiobutton(text="Hard", variable=easy_mode, value=False)
+hard_option.place(x=60, y=280)
+
+
+####create and set default status for checkboxes
+checkbox_subtraction = tk.IntVar()
+checkbox_addition = tk.IntVar()
+checkbox_division = tk.IntVar()
+checkbox_multiplikation = tk.IntVar()
+
+#create checkbox multiplication
+checkbox = tk.Checkbutton(text="*",variable=checkbox_multiplikation, font=("Arial", 16))
+checkbox.place(x=60, y=320)
+checkbox_multiplikation.set(True)
+
+#create checkbox division
+checkbox = tk.Checkbutton(text=":",variable=checkbox_division, font=("Arial", 16))
+checkbox.place(x=100, y=320)
+checkbox_division.set(True)
+
+#create checkbox subtraction
+checkbox = tk.Checkbutton(text="-", variable=checkbox_subtraction, font=("Arial", 16),)
+checkbox.place(x=140, y=320)
+checkbox_subtraction.set(True)
+
+#create checkbox addition
+checkbox = tk.Checkbutton(text="+", variable=checkbox_addition , font=("Arial", 16))
+checkbox.place(x=180, y=320)
+checkbox_addition.set(True)
+
 
 def generate_numbers():
     global easy_mode
     global num1
     global num2
-    if easy_mode == 1:
+
+    
+    if easy_mode.get() == 1:
         num1 = random.randint(1, 10)
         num2 = random.randint(1, 10)
         print("easy")
@@ -45,7 +187,7 @@ def generate_numbers():
 
         num1 = random.randint(1, 20)
         num2 = random.randint(1, 20)
-        print(easy_mode.get())
+        print("hard")
     return num1, num2
 
 def generate_problem(*args):
@@ -124,164 +266,11 @@ def update_operations(*args):
         print(divisionrechnen)
         print("Divisionsrechnen aus")
 
-
-generate_problem()
-
-
-
-
-
-
-
-
-#New Gui
-window = tk.Tk()
-window.resizable(False, False)
-window.geometry("400x400")
-window.title("Kofprechnen macht Spass!")
-
-problem_label_title = tk.Label(text="Rechenaufgabe:", font=("Arial", 24), width=21)
-problem_label_title.grid(row=0, column=0, sticky="")
-
-
-#create the problem
-problem = tk.Label(text=rechnung, font=("Arial", 24), width=0)                     #Rechnung anpassen
-problem.grid(row=1, column=0)
-
-
-#create the answer entry field
-answer_entry = tk.Entry(font=("Arial", 24), width=9)
-answer_entry.grid(row=2, column=0)
-
-
-#create/position button Prüfen
-answer_button = tk.Button(text="Prüfen", font=("Arial", 14))
-answer_button.grid(row=3, column=0)
-
-
-#create/position button Neue Aufgabe and the logic of it.
-
-def NeueAufgabe():
-    generate_numbers()
-    generate_problem()
-    problem.config(text=rechnung)
-answer_button = tk.Button(text="Neue Aufgabe", font=("Arial", 12),command=NeueAufgabe)
-answer_button.place(x=60, y=190)
-
-
-#create button 9
-def insert_number9():
-    answer_entry.insert(tk.END, "9")
-one_button = tk.Button(text="9", font=("Arial", 14), command=insert_number9)
-one_button.place(x=315, y=190)
-
-#create button 8
-def insert_number8():
-    answer_entry.insert(tk.END, "8")
-one_button = tk.Button(text="8", font=("Arial", 14), command=insert_number8)
-one_button.place(x=275, y=190)
-
-#create button 7
-def insert_number7():
-    answer_entry.insert(tk.END, "7")
-one_button = tk.Button(text="7", font=("Arial", 14), command=insert_number7)
-one_button.place(x=235, y=190)
-
-#create button 6
-def insert_number6():
-    answer_entry.insert(tk.END, "6")
-one_button = tk.Button(text="6", font=("Arial", 14), command= insert_number6)
-one_button.place(x=315, y=240)
-
-#create button 5
-def insert_number5():
-    answer_entry.insert(tk.END, "5")
-one_button = tk.Button(text="5", font=("Arial", 14), command=insert_number5)
-one_button.place(x=275, y=240)
-
-#create button 4
-def insert_number4():
-    answer_entry.insert(tk.END, "4")
-one_button = tk.Button(text="4", font=("Arial", 14), command=insert_number4)
-one_button.place(x=235, y=240)
-
-#create button 3
-def insert_number3():
-    answer_entry.insert(tk.END, "3")
-one_button = tk.Button(text="3", font=("Arial", 14),command=insert_number3)
-one_button.place(x=315, y=290)
-
-#create button 2
-def insert_number2():
-    answer_entry.insert(tk.END, "2")
-one_button = tk.Button(text="2", font=("Arial", 14), command=insert_number2)
-one_button.place(x=275, y=290)
-
-#create button 1
-def insert_number1():
-    answer_entry.insert(tk.END, "1")
-one_button = tk.Button(text="1", font=("Arial", 14), command=insert_number1)
-one_button.place(x=235, y=290)
-
-#create button 0
-def insert_number0():
-    answer_entry.insert(tk.END, "0")
-one_button = tk.Button(text="0", font=("Arial", 14), command= insert_number0)
-one_button.place(x=235, y=340)
-
-#create button Enter
-one_button = tk.Button(text="Enter", font=("Arial", 14))
-one_button.place(x=275, y=340)
-
-
-####create and set default status for radiobutton
-easy_mode =  tk.BooleanVar()
-#easy_mode.set(True) #zerstört die Variable für das Programm
-
-#create radiobutton easy
-easy_option = tk.Radiobutton(text="Easy", variable=easy_mode, value=True)
-easy_option.place(x=60, y=240)
-
-#create radiobutton hard
-hard_option = tk.Radiobutton(text="Hard", variable=easy_mode, value=False)
-hard_option.place(x=60, y=280)
-
-
-####create and set default status for checkboxes
-checkbox_subtraction = tk.IntVar()
-checkbox_addition = tk.IntVar()
-checkbox_division = tk.IntVar()
-checkbox_multiplikation = tk.IntVar()
-
-#create checkbox multiplication
-checkbox = tk.Checkbutton(text="*",variable=checkbox_multiplikation, font=("Arial", 16))
-checkbox.place(x=60, y=320)
-checkbox_multiplikation.set(True)
-
-#create checkbox division
-checkbox = tk.Checkbutton(text=":",variable=checkbox_division, font=("Arial", 16))
-checkbox.place(x=100, y=320)
-checkbox_division.set(True)
-
-#create checkbox subtraction
-checkbox = tk.Checkbutton(text="-", variable=checkbox_subtraction, font=("Arial", 16),)
-checkbox.place(x=140, y=320)
-checkbox_subtraction.set(True)
-
-#create checkbox addition
-checkbox = tk.Checkbutton(text="+", variable=checkbox_addition , font=("Arial", 16))
-checkbox.place(x=180, y=320)
-checkbox_addition.set(True)
-
 # Call the update_operations function whenever a checkbox is clicked
 checkbox_addition.trace("w", update_operations)
 checkbox_subtraction.trace("w", update_operations)
 checkbox_multiplikation.trace("w", update_operations)
 checkbox_division.trace("w", update_operations)
-
-
-
-
 
 
 window.mainloop()
