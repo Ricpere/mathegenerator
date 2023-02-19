@@ -28,9 +28,6 @@ divisionrechnen = True
 result = int(0)
 rechnung = int(0)
 user_answer = False
-num1= int(123)
-num2= int(123)
-easy_mode= "True"
 problem= "1"
 
 
@@ -54,16 +51,10 @@ answer_entry = tk.Entry(font=("Arial", 24), width=9)
 answer_entry.grid(row=2, column=0)
 
 
-#create/position button Prüfen
-answer_button = tk.Button(text="Prüfen", font=("Arial", 14))
-answer_button.grid(row=3, column=0)
-
-
 #create/position button Neue Aufgabe and the logic of it.
 
 def NeueAufgabe():
     generate_problem()
-    problem.config(text=rechnung)
 answer_button = tk.Button(text="Neue Aufgabe", font=("Arial", 12),command=NeueAufgabe)
 answer_button.place(x=60, y=190)
 
@@ -127,11 +118,6 @@ def insert_number0():
     answer_entry.insert(tk.END, "0")
 one_button = tk.Button(text="0", font=("Arial", 14), command= insert_number0)
 one_button.place(x=235, y=340)
-
-#create button Enter
-one_button = tk.Button(text="Enter", font=("Arial", 14))
-one_button.place(x=275, y=340)
-
 
 ####create and set default status for radiobutton
 easy_mode =  tk.BooleanVar(value=True)
@@ -226,6 +212,8 @@ def generate_problem(*args):
         tempresultat = num1 * num2
         result = tempresultat / num1
         rechnung = "%i : %i" % (tempresultat, num1)
+    problem.config(text=rechnung)
+    answer_entry.delete(0,tk.END)
     return result,rechnung,num1,num2
 
 
@@ -271,6 +259,57 @@ checkbox_addition.trace("w", update_operations)
 checkbox_subtraction.trace("w", update_operations)
 checkbox_multiplikation.trace("w", update_operations)
 checkbox_division.trace("w", update_operations)
+
+#create/position button Prüfen
+
+def check_answer():
+    update_operations()
+    global rechnung
+    global result
+    global user_answer
+
+    try:
+        user_answer = int(answer_entry.get())
+    except ValueError:
+        answer_entry.delete(0,tk.END)
+        answer_entry.insert(0,"Falsch :(")
+        window.after(1000,lambda: answer_entry.delete(0,tk.END))
+        return False
+
+    if user_answer == result:
+        print("Rechnung richtig")
+        print("Input=", user_answer)
+        print("Resultat=", result)
+        answer_entry.delete(0,tk.END)
+        answer_entry.insert(0,"Richtig :-)")
+        window.after(1000, generate_problem)
+        
+        return True
+
+    else:
+        print("Rechnung falsch")
+        print("Input=", user_answer)
+        print("Resultat=", result)
+        answer_entry.delete(0,tk.END)
+        answer_entry.insert(0,"FALSCH :-(")
+        window.after(1000,lambda: answer_entry.delete(0,tk.END))
+        return False
+
+answer_button = tk.Button(text="Prüfen", font=("Arial", 14), command=check_answer)
+answer_button.grid(row=3, column=0)
+
+#create button Enter
+one_button = tk.Button(text="Enter", font=("Arial", 14),command=check_answer)
+one_button.place(x=275, y=340)
+
+
+#generate Rechnung on Startup
+generate_problem()
+
+
+#Bind the "Enter" Key
+
+window.bind ('<Return>')
 
 
 window.mainloop()
