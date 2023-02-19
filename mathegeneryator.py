@@ -30,19 +30,22 @@ rechnung = int(0)
 user_answer = False
 num1= int(123)
 num2= int(123)
-easy_mode=True
+easy_mode=bool(1)
 problem= "1"
 
 def generate_numbers():
     global easy_mode
     global num1
     global num2
-    if easy_mode == True:
+    if easy_mode == 1:
         num1 = random.randint(1, 10)
         num2 = random.randint(1, 10)
+        print("easy")
     else:
+
         num1 = random.randint(1, 20)
         num2 = random.randint(1, 20)
+        print(easy_mode.get())
     return num1, num2
 
 def generate_problem(*args):
