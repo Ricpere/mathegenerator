@@ -232,7 +232,7 @@ def generate_problem(*args):
         rechnung = "%i - %i" % (num1, num2)
     if chosen_operation == "multiplikation":
         result = num1 * num2
-        rechnung = "%i * %i" % (num1, num2)
+        rechnung = "%i x %i" % (num1, num2)
     if chosen_operation == "division":
         tempresultat = num1 * num2
         result = tempresultat / num1
