@@ -165,7 +165,7 @@ checkbox_division = tk.IntVar()
 checkbox_multiplikation = tk.IntVar()
 
 # create checkbox multiplication
-checkbox = tk.Checkbutton(text="*", variable=checkbox_multiplikation, font=("Arial", 16))
+checkbox = tk.Checkbutton(text="x", variable=checkbox_multiplikation, font=("Arial", 16))
 checkbox.place(x=60, y=320)
 checkbox_multiplikation.set(True)
 
