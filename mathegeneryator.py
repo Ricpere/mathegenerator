@@ -10,6 +10,7 @@ V0.5 Bugfixes gemäss Testsprint 1 (Anpassung der Variablen auf Global)
 V0.6 Implementierung der Automatischen Lösungskontrolle im Gui inklusive Eingabelöschung.
 Implementierung der neue Aufgabe Funkion
 Implementierung der Schwierigkeit
+V0.7 Anpassung gemäss Testsprint 2 (Anpassung des Guis und Steigerung der Schwierigkeit auf Stufe Schwer)
 """
 
 # Import Module
@@ -150,11 +151,11 @@ easy_mode = tk.BooleanVar(value=True)
 # easy_mode.set(True) #zerstört die Variable für das Programm
 
 # create radiobutton easy
-easy_option = tk.Radiobutton(text="Easy", variable=easy_mode, value=True)
+easy_option = tk.Radiobutton(text="Einfach", variable=easy_mode, value=True)
 easy_option.place(x=60, y=240)
 
 # create radiobutton hard
-hard_option = tk.Radiobutton(text="Hard", variable=easy_mode, value=False)
+hard_option = tk.Radiobutton(text="Schwer", variable=easy_mode, value=False)
 hard_option.place(x=60, y=280)
 
 ####create and set default status for checkboxes
@@ -195,8 +196,8 @@ def generate_numbers():
         print("easy")
     else:
 
-        num1 = random.randint(1, 20)
-        num2 = random.randint(1, 20)
+        num1 = random.randint(5, 30)
+        num2 = random.randint(5, 30)
         print("hard")
     return num1, num2
 
