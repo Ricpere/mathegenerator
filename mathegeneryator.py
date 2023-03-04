@@ -146,6 +146,14 @@ def insert_number0():
 one_button = tk.Button(text="0", font=("Arial", 14), command=insert_number0)
 one_button.place(x=235, y=340)
 
+# create button -
+def insert_minus():
+    answer_entry.insert(tk.END, "-")
+
+
+one_button = tk.Button(text="-", font=("Arial", 14), command=insert_minus)
+one_button.place(x=345, y=340)
+
 ####create and set default status for radiobutton
 easy_mode = tk.BooleanVar(value=True)
 # easy_mode.set(True) #zerstört die Variable für das Programm
