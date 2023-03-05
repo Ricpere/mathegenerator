@@ -11,6 +11,7 @@ V0.6 Implementierung der Automatischen Lösungskontrolle im Gui inklusive Eingab
 Implementierung der neue Aufgabe Funkion
 Implementierung der Schwierigkeit
 V0.7 Anpassung gemäss Testsprint 2 (Anpassung des Guis und Steigerung der Schwierigkeit auf Stufe Schwer)
+V0.8 Anpassung gemäss Testsprint 3 (Hinzufügen der Minustaste bei der Eingabe auf dem Bildschirm)
 """
 
 # Import Module
@@ -204,8 +205,8 @@ def generate_numbers():
         print("easy")
     else:
 
-        num1 = random.randint(5, 30)
-        num2 = random.randint(5, 30)
+        num1 = random.randint(5, 20)
+        num2 = random.randint(5, 20)
         print("hard")
     return num1, num2
 
