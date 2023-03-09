@@ -164,7 +164,7 @@ easy_option = tk.Radiobutton(text="Einfach", variable=easy_mode, value=True)
 easy_option.place(x=60, y=240)
 
 # create radiobutton hard
-hard_option = tk.Radiobutton(text="Schwer", variable=easy_mode, value=False)
+hard_option = tk.Radiobutton(text="Schwierig", variable=easy_mode, value=False)
 hard_option.place(x=60, y=280)
 
 ####create and set default status for checkboxes
@@ -306,7 +306,7 @@ def check_answer(*args):
         user_answer = int(answer_entry.get())
     except ValueError:
         answer_entry.delete(0, tk.END)
-        answer_entry.insert(0, "Falsch :(")
+        answer_entry.insert(0, "Falsch :-(")
         window.after(1000, lambda: answer_entry.delete(0, tk.END))
         return False
 
@@ -325,7 +325,7 @@ def check_answer(*args):
         print("Input=", user_answer)
         print("Resultat=", result)
         answer_entry.delete(0, tk.END)
-        answer_entry.insert(0, "FALSCH :-(")
+        answer_entry.insert(0, "Falsch :-(")
         window.after(1000, lambda: answer_entry.delete(0, tk.END))
         return False
 
